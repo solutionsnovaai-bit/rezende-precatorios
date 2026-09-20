@@ -1,0 +1,144 @@
+/* Second edition: integrated identity, kinetic type and photographic motion. */
+.brand-filters { position: absolute; overflow: hidden; pointer-events: none; }
+.brand-logo { mix-blend-mode: normal; }
+.brand-logo img { filter: url(#brand-background-key); opacity: 0; }
+.brand-logo img.is-loaded { opacity: 1; }
+.site-header { background: transparent; border-bottom: 0; }
+.site-header.is-scrolled { background: #faf9f6f5; box-shadow: 0 6px 24px #0b223509; }
+.site-header.menu-is-open { background: var(--paper); }
+.hero-word-slot { display: grid; overflow: hidden; position: relative; padding: .05em .04em .15em; margin: -.05em -.04em -.15em; }
+.hero-word-sizer { visibility: hidden; grid-area: 1 / 1; }
+.hero-word { grid-area: 1 / 1; display: block; white-space: nowrap; }
+.hero h1 { line-height: .97; }
+
+/* One continuous original bitmap; no seams, rails or reconstructed logo parts. */
+.brand-intro-v2 { position: fixed; inset: 0; z-index: 200; overflow: hidden; background: #edf2f5; color: #12334b; display: flex; align-items: center; justify-content: center; }
+.intro-top { position: absolute; inset: 35px 3.5% auto; display: flex; justify-content: flex-end; align-items: center; }
+.intro-top button { display: flex; align-items: center; gap: 12px; background: transparent; color: inherit; padding: 12px 0 12px 12px; font-size: .8125rem; letter-spacing: 0; }
+.intro-brand-film { width: min(820px, 80vw); }
+.intro-logo-space { position: relative; width: 100%; aspect-ratio: 3.07; perspective: 1000px; }
+.intro-logo-space .brand-logo { width: 100%; height: 100%; }
+.intro-logo-reveal, .intro-logo-light { position: absolute; inset: 0; }
+.intro-logo-light { opacity: .24; mix-blend-mode: screen; }
+.intro-logo-light .brand-logo img { filter: url(#brand-background-key) brightness(2); }
+.intro-brand-caption { margin-top: 38px; text-align: center; font-size: .875rem; font-weight: 400; letter-spacing: .12em; color: #576d7c; }
+
+/* Continuous word ribbon, with a static readable label for assistive technology. */
+.word-ribbon { overflow: hidden; background: #e0c79d; padding-block: 27px 32px; color: #142c3b; }
+.word-ribbon-track { display: flex; width: max-content; animation: ribbon-drift 36s linear infinite; animation-play-state: paused; }
+.word-ribbon.is-moving .word-ribbon-track { animation-play-state: running; }
+.word-ribbon-group { display: flex; flex: 0 0 auto; align-items: center; gap: 45px; padding-right: 45px; }
+.word-ribbon-group > span { font: 400 clamp(2.8rem, 4.2vw, 4.8rem)/1.1 var(--font-serif); letter-spacing: -.025em; white-space: nowrap; }
+.word-ribbon-group svg { width: 42px; height: 42px; stroke-width: 1; opacity: .65; }
+@keyframes ribbon-drift { to { transform: translateX(-50%); } }
+
+/* Autoplay is the default: no play button, arrows, or pagination buttons. */
+.gallery-v2 .gallery-stage { min-height: 540px; }
+.gallery-v2 .gallery-visual, .gallery-v2 .gallery-story { min-height: 540px; }
+.gallery-v2 .gallery-story { background: #102a3d; padding-bottom: 28px; }
+.chapter-number small { font: 400 .75rem var(--font-sans); color: #8eabbc; letter-spacing: .12em; }
+.gallery-timeline { display: flex; gap: 5px; margin-top: 28px; }
+.gallery-timeline > span { display: block; height: 2px; flex: 1; background: #355266; overflow: hidden; }
+.gallery-timeline > span.is-complete { background: #c6a76f; }
+.gallery-timeline i { display: block; height: 100%; width: 100%; background: #d1b583; transform-origin: left; animation: gallery-time linear both; }
+@keyframes gallery-time { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.image-filmstrip { overflow: hidden; margin-top: 28px; padding-bottom: 28px; }
+.filmstrip-track { display: flex; width: max-content; animation: ribbon-drift 42s linear infinite; animation-play-state: paused; }
+.image-filmstrip.is-moving .filmstrip-track { animation-play-state: running; }
+.filmstrip-group { display: flex; gap: 14px; padding-right: 14px; }
+.filmstrip-frame { width: 220px; flex: 0 0 auto; position: relative; overflow: hidden; background: #102b40; }
+.filmstrip-frame img { width: 100%; height: 142px; object-fit: cover; opacity: .9; }
+.filmstrip-frame span { display: block; font-size: .75rem; padding: 11px 0 0; color: #b1c1cb; letter-spacing: .05em; }
+.gallery-disclaimer { padding-bottom: 30px; }
+
+/* Staggered photography is driven by scroll rather than a continuous RAF loop. */
+.photo-essay { background: #f6f7f5; overflow: hidden; }
+.essay-heading { display: grid; grid-template-columns: 1.2fr 1fr; align-items: end; row-gap: 22px; }
+.essay-heading .eyebrow { grid-column: 1 / -1; color: #796947; }
+.essay-heading h2 { font-size: clamp(4.5rem, 7.5vw, 8.25rem); line-height: .94; }
+.essay-heading h2 > span { color: #96703b; }
+.essay-heading p { justify-self: end; color: #5d6c74; padding-bottom: 8px; }
+.essay-grid { display: grid; grid-template-columns: .95fr 1.16fr .95fr; gap: 32px; align-items: center; margin-top: 85px; margin-bottom: 85px; }
+.essay-card { margin: 0; min-width: 0; }
+.essay-image { overflow: hidden; background: #dfe3e2; }
+.essay-image img { width: 100%; height: 410px; object-fit: cover; }
+.essay-card-2 .essay-image img { height: 535px; }
+.essay-card-3 .essay-image img { height: 380px; }
+.essay-card figcaption { padding-top: 20px; }
+.essay-card figcaption > span { font-size: .75rem; letter-spacing: .1em; color: #718087; }
+.essay-card h3 { font-size: clamp(1.8rem, 2.6vw, 3.1rem); line-height: 1.1; margin-top: 10px; letter-spacing: -.025em; }
+.essay-foot { display: flex; justify-content: space-between; gap: 30px; align-items: center; }
+.essay-foot > span { font: italic 500 1.75rem var(--font-serif); color: #7d6c51; }
+
+.contact-bubble { position: fixed; bottom: max(24px, env(safe-area-inset-bottom)); right: 25px; z-index: 120; display: flex; align-items: center; gap: 12px; }
+.contact-bubble-symbol { display: grid; place-items: center; width: 60px; height: 60px; border-radius: 50%; color: white; background: #133f51; box-shadow: 0 5px 25px #001b3033; transition: transform .3s, box-shadow .3s; position: relative; }
+.contact-bubble.is-whatsapp .contact-bubble-symbol { background: #25d366; }
+.contact-bubble-symbol .brand-icon { width: 29px; height: 29px; }
+.contact-bubble:hover .contact-bubble-symbol { transform: translateY(-4px); box-shadow: 0 9px 28px #001b3047; }
+.contact-bubble-label { background: #fff; border: 1px solid #dfe4e1; box-shadow: 0 3px 18px #08273612; color: #203e4c; font-size: .8125rem; padding: 10px 14px; border-radius: 3px; opacity: 0; transform: translateX(8px); transition: transform .3s, opacity .3s; }
+.contact-bubble:hover .contact-bubble-label, .contact-bubble:focus-visible .contact-bubble-label { opacity: 1; transform: translateX(0); }
+.motion-toggle { margin-top: 18px; padding: 6px 0; background: transparent; color: #5b6c74; font-size: .75rem; border-bottom: 1px solid #b5bfbd; }
+.motion-is-paused .filmstrip-track, .motion-is-paused .word-ribbon-track, .motion-is-paused .gallery-timeline i, .motion-is-paused .scroll-invitation svg { animation-play-state: paused !important; }
+.motion-is-paused .hero-art, .motion-is-paused .hero-art picture, .motion-is-paused .essay-card, .motion-is-paused .essay-image img { transform: none !important; }
+
+@media (max-width: 1100px) {
+  .essay-grid { gap: 20px; }
+  .essay-image img { height: 340px; }
+  .essay-card-2 .essay-image img { height: 430px; }
+  .essay-card-3 .essay-image img { height: 310px; }
+}
+@media (max-width: 768px) {
+  .hero h1 { font-size: clamp(3.6rem, 10.7vw, 5.2rem); }
+  .hero { min-height: 985px; }
+  .intro-top { inset: 20px 22px auto; font-size: .75rem; letter-spacing: .08em; }
+  .intro-brand-film { width: calc(100% - 40px); }
+  .intro-brand-caption { margin-top: 25px; font-size: .8125rem; letter-spacing: .055em; }
+  .word-ribbon { padding-block: 23px 27px; }
+  .word-ribbon-group { gap: 28px; padding-right: 28px; }
+  .word-ribbon-group > span { font-size: 3rem; }
+  .word-ribbon-group svg { width: 30px; height: 30px; }
+  .gallery-v2 .gallery-stage { min-height: 0; }
+  .gallery-v2 .gallery-visual { min-height: 0; aspect-ratio: 4/3; }
+  .gallery-v2 .gallery-story { min-height: 320px; padding: 27px 26px 25px; }
+  .gallery-v2 .chapter-number { font-size: 3.5rem; right: 25px; }
+  .chapter-number small { font-size: .75rem; }
+  .gallery-v2 .gallery-story .eyebrow { padding-right: 100px; }
+  .gallery-v2 .gallery-story h3 { max-width: 95%; }
+  .gallery-v2 .gallery-timeline { margin-top: 28px; }
+  .image-filmstrip { margin-top: 15px; padding-bottom: 22px; }
+  .filmstrip-frame { width: 160px; }
+  .filmstrip-frame img { height: 108px; }
+  .filmstrip-frame span { font-size: .75rem; }
+  .filmstrip-track { animation-duration: 35s; }
+  .essay-heading { display: block; }
+  .essay-heading .eyebrow { margin-bottom: 25px; font-size: .75rem; }
+  .essay-heading h2 { font-size: clamp(4.3rem, 14vw, 6.7rem); }
+  .essay-heading p { margin-top: 28px; font-size: 1rem; }
+  .essay-heading p br { display: none; }
+  .essay-grid { grid-template-columns: 1fr 1fr; gap: 22px 15px; margin-top: 42px; margin-bottom: 34px; }
+  .essay-card { transform: none !important; }
+  .essay-card-1 { padding-top: 38px; }
+  .essay-card-3 { grid-column: 1 / -1; width: 77%; justify-self: end; }
+  .essay-image img { height: 235px; }
+  .essay-card-2 .essay-image img { height: 300px; }
+  .essay-card-3 .essay-image img { height: 220px; }
+  .essay-card figcaption { padding-top: 14px; }
+  .essay-card figcaption > span { font-size: .75rem; letter-spacing: .02em; }
+  .essay-card h3 { font-size: 2rem; }
+  .essay-foot { flex-direction: column; align-items: start; gap: 15px; }
+  .essay-foot > span { font-size: 1.5rem; }
+  .contact-bubble { bottom: max(18px, env(safe-area-inset-bottom)); right: 17px; }
+  .contact-bubble-symbol { width: 54px; height: 54px; }
+  .contact-bubble-label { display: none; }
+  .site-footer { padding-bottom: 85px; }
+}
+@media (max-width: 374px) {
+  .hero h1 { font-size: 3.3rem; }
+  .essay-card h3 { font-size: 1.7rem; }
+  .gallery-v2 .gallery-story h3 { font-size: 2.6rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .word-ribbon-track, .filmstrip-track { animation: none; }
+  .essay-card, .essay-image img { transform: none !important; }
+  .gallery-timeline i { animation: none; }
+}
